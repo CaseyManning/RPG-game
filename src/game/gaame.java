@@ -12,18 +12,20 @@ public class gaame extends GraphicsProgram{
 	boolean left = false;
 	boolean up = false;
 	boolean down = false;
+	
 	GRect guy  = new GRect(40,430,50,50);
 	GRect solid = new GRect(250,250,27,170);
+	
 	int width = getWidth();
 	int height = getHeight();
 
 
 
 	public void run() {
+		
 		addKeyListeners();
 
 		add(guy);
-
 
 		add(solid);
 
@@ -31,8 +33,6 @@ public class gaame extends GraphicsProgram{
 		solid.setFillColor(Color.GRAY);
 
 	}
-
-
 
 	public void keyPressed(KeyEvent e) {
 
@@ -113,9 +113,6 @@ public class gaame extends GraphicsProgram{
 		}
 
 
-
-
-
 		GObject l = getElementAt(guy.getX(),guy.getY() + guy.getHeight());
 
 		if(l != solid) {
@@ -137,20 +134,5 @@ public class gaame extends GraphicsProgram{
 				}
 			}
 		}
-
-
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
