@@ -7,11 +7,12 @@ import acm.program.GraphicsProgram;
 
 
 public class gaame extends GraphicsProgram{
-
+	int currentstate = 1;
 	boolean right = false;
 	boolean left = false;
 	boolean up = false;
 	boolean down = false;
+	GImage[] forward = new GImage[3];
 	
 	GRect guy  = new GRect(40,430,50,50);
 	GRect solid = new GRect(250,250,27,170);
@@ -40,6 +41,12 @@ public class gaame extends GraphicsProgram{
 
 		for(int i = 0; i < 8; i++) {
 			walk(key);
+			if(currentstate < 3){
+				currentstate++;
+			}
+			else{
+				currentstate = 1;
+			}
 		} 
 	}
 
