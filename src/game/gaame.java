@@ -39,15 +39,10 @@ public class gaame extends GraphicsProgram{
 
 	public void keyPressed(KeyEvent e) {
 
-
 		int key = e.getKeyCode();
 
-
 		for(int i = 0; i < 8; i++) {
-
 			walk(key);
-
-
 		} 
 	}
 
