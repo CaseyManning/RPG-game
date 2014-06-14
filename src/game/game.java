@@ -24,6 +24,9 @@ public class game extends GraphicsProgram {
 		PlayText.setFont("UbuntuMono-BOLD-24");
 		
 		add(PlayText, (getWidth()/2) - (PlayText.getWidth()/2), APPLICATION_HEIGHT/3 + (PlayText.getHeight()/3));
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 	}
 }
