@@ -46,15 +46,15 @@ public class gaame extends GraphicsProgram{
 
 	public void walk(int key) {
 
-		GObject b = getElementAt(guy.getX(), guy.getY());
+		GObject b = getElementAt(guy.getX() - 1, guy.getY());
 
 		if(b != solid) {
 
-			GObject j = getElementAt(guy.getX(), guy.getY() + guy.getHeight());
+			GObject j = getElementAt(guy.getX() - 1, guy.getY() + guy.getHeight());
 
 			if(j != solid) {
 
-				GObject d = getElementAt(guy.getX(), guy.getY() + (guy.getHeight()/2));
+				GObject d = getElementAt(guy.getX() - 1, guy.getY() + (guy.getHeight()/2));
 
 				if(d != solid) {
 
@@ -69,15 +69,15 @@ public class gaame extends GraphicsProgram{
 
 
 
-		GObject a = getElementAt(guy.getX() + guy.getWidth(),guy.getY());
+		GObject a = getElementAt(guy.getX() + guy.getWidth() + 1,guy.getY());
 
 		if(a != solid) {
 
-			GObject f = getElementAt(guy.getX() + guy.getWidth(),guy.getY() + guy.getHeight());
+			GObject f = getElementAt(guy.getX() + guy.getWidth() + 1,guy.getY() + guy.getHeight());
 
 			if(f != solid) {
 
-				GObject m = getElementAt(guy.getX() + guy.getWidth(),guy.getY() + (guy.getHeight()/2));
+				GObject m = getElementAt(guy.getX() + guy.getWidth() + 1,guy.getY() + (guy.getHeight()/2));
 
 				if(m != solid) {
 
@@ -91,16 +91,16 @@ public class gaame extends GraphicsProgram{
 		}
 
 
-		GObject g = getElementAt(guy.getX() + (guy.getWidth()/2),guy.getY());
+		GObject g = getElementAt(guy.getX() + (guy.getWidth()/2),guy.getY() - 1);
 
 		if(g != solid) {
 
 
-			GObject c = getElementAt(guy.getX(),guy.getY());
+			GObject c = getElementAt(guy.getX(),guy.getY() - 1);
 
 			if(c != solid) {
 
-				GObject p = getElementAt(guy.getX() + guy.getWidth(),guy.getY());
+				GObject p = getElementAt(guy.getX() + guy.getWidth(),guy.getY() - 1);
 
 				if(p != solid) {
 
@@ -113,15 +113,15 @@ public class gaame extends GraphicsProgram{
 		}
 
 
-		GObject l = getElementAt(guy.getX(),guy.getY() + guy.getHeight());
+		GObject l = getElementAt(guy.getX(),guy.getY() + guy.getHeight() + 1);
 
 		if(l != solid) {
 
-			GObject n = getElementAt(guy.getX() + guy.getWidth(),guy.getY() + guy.getHeight());
+			GObject n = getElementAt(guy.getX() + guy.getWidth(),guy.getY() + guy.getHeight() + 1);
 
 			if(n != solid) {
 
-				GObject k = getElementAt(guy.getX() + (guy.getWidth()/2),guy.getY() + guy.getHeight());
+				GObject k = getElementAt(guy.getX() + (guy.getWidth()/2),guy.getY() + guy.getHeight() + 1);
 
 				if(k != solid) {
 
