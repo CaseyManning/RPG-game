@@ -20,8 +20,5 @@ public class game extends GraphicsProgram {
 		PlayText.setColor(Color.BLACK);
 		PlayText.setFont("UbuntuMono-BOLD-24");
 		add(PlayText, (getWidth()/2) - (PlayText.getWidth()/2), APPLICATION_HEIGHT/3 + (PlayText.getHeight()/3));
-		println(PlayText.getLocation());
-		println(APPLICATION_WIDTH);
-		println(670/2);
 	}
 }
