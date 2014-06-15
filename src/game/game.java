@@ -5,7 +5,6 @@ import java.awt.event.MouseEvent;
 
 import acm.graphics.*;
 import acm.program.GraphicsProgram;
-import acmx.export.javax.swing.JButton;
 
 public class game extends GraphicsProgram {
 
@@ -18,11 +17,23 @@ public class game extends GraphicsProgram {
 	boolean up = false;
 	boolean down = false;
 	boolean playing = false;
-	GImage[] forward = new GImage[3];
+	GImage[] foward = new GImage[3];
 	GImage background = new GImage("mBackground.jpg");
 	GLabel PlayText = new GLabel("Play");
 	GRect guy  = new GRect(40,430,50,50);
 	GRect solid = new GRect(250,250,27,170);
+	GImage foward1 = new GImage("backwards1.png");
+	GImage foward2 = new GImage("backwards2.png");
+	GImage foward3 = new GImage("backwards3.png");
+	GImage left1 = new GImage("left1.png");
+	GImage left2 = new GImage("left2.png");
+	GImage left3 = new GImage("left3.png");
+	GImage right1 = new GImage("right1.png");
+	GImage right2 = new GImage("right2.png");
+	GImage right3 = new GImage("right3.png");
+	GImage backward1 = new GImage("foward1.png");
+	GImage backward2 = new GImage("foward2.png");
+	GImage backward3 = new GImage("foward3.png");
 
 	int width = getWidth();
 	int height = getHeight();
@@ -45,8 +56,8 @@ public class game extends GraphicsProgram {
 
 	public void mousePressed(MouseEvent e) {
 		GObject click = getElementAt(e.getX(), e.getY());
-
-		if(click.equals(Play) || click.equals(PlayText)) {
+		println(click);
+		if(click == Play || click == PlayText) {
 			removeAll();
 			play();
 		}
