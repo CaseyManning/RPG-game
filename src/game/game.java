@@ -1,11 +1,10 @@
 package game;
+
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-
 import acm.graphics.*;
 import acm.program.GraphicsProgram;
-import acmx.export.javax.swing.JButton;
 
 public class game extends GraphicsProgram {
 
@@ -18,11 +17,13 @@ public class game extends GraphicsProgram {
 	boolean up = false;
 	boolean down = false;
 	boolean playing = false;
+	
 	GImage[] forward = new GImage[3];
 	GImage background = new GImage("mBackground.jpg");
 	GLabel PlayText = new GLabel("Play");
 	GRect guy  = new GRect(40,430,50,50);
 	GRect solid = new GRect(250,250,27,170);
+	GRect peerson = new GRect(400, 100, 50,50);
 
 	int width = getWidth();
 	int height = getHeight();
@@ -45,10 +46,17 @@ public class game extends GraphicsProgram {
 
 	public void mousePressed(MouseEvent e) {
 		GObject click = getElementAt(e.getX(), e.getY());
-
+		if(playing == false) {
 		if(click.equals(Play) || click.equals(PlayText)) {
 			removeAll();
 			play();
+		}
+		}
+		if(playing == true) {
+			GObject j = getElementAt(e.getX(), e.getY());
+			if(j.equals(peerson)) {
+				println("HI!");
+			}
 		}
 	}
 	public void play() {
@@ -56,11 +64,11 @@ public class game extends GraphicsProgram {
 		addKeyListeners();
 		playing = true;
 		add(guy);
-
 		add(solid);
 
 		solid.setFilled(true);
 		solid.setFillColor(Color.GRAY);
+		add(peerson);
 
 	}
 	public void keyPressed(KeyEvent e) {
