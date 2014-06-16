@@ -11,17 +11,16 @@ public class game extends GraphicsProgram {
 	public static final int APPLICATION_WIDTH = 670;
 	public static final int APPLICATION_HEIGHT = 474;
 	GImage Play = new GImage("button.png");
-	int currentstate = 1;
+	int currentstate = 0;
 	boolean right = false;
 	boolean left = false;
 	boolean up = false;
 	boolean down = false;
 	boolean playing = false;
 	
-	GImage[] forward = new GImage[3];
 	GImage background = new GImage("mBackground.jpg");
 	GLabel PlayText = new GLabel("Play");
-	GRect guy  = new GRect(40,430,50,50);
+	GImage guy  = new GImage( "backwards0.png", 40,430);
 	GRect solid = new GRect(250,250,27,170);
 	GRect peerson = new GRect(400, 100, 50,50);
 
@@ -74,15 +73,15 @@ public class game extends GraphicsProgram {
 	public void keyPressed(KeyEvent e) {
 		if(playing){
 			int key = e.getKeyCode();
-
+			if(currentstate < 3){
+				currentstate++;
+			}
+			else{
+				currentstate = 0;
+			}
 			for(int i = 0; i < 8; i++) {
 				walk(key);
-				if(currentstate < 3){
-					currentstate++;
-				}
-				else{
-					currentstate = 1;
-				}
+
 			}
 		}
 	}
@@ -105,6 +104,7 @@ public class game extends GraphicsProgram {
 					if(key == KeyEvent.VK_LEFT) {
 						left = true;
 						guy.move(-1, 0);
+						guy.setImage("left" + currentstate + ".png");
 					}
 				}
 
@@ -129,6 +129,7 @@ public class game extends GraphicsProgram {
 					if(key == KeyEvent.VK_RIGHT) {
 						right = true;
 						guy.move(1, 0);
+						guy.setImage("right" + currentstate + ".png");
 					}
 				}
 			}
@@ -151,6 +152,7 @@ public class game extends GraphicsProgram {
 					if(key == KeyEvent.VK_UP) {
 						up = true;
 						guy.move(0, -1);
+						guy.setImage("backwards" + currentstate + ".png");
 					}
 				}
 			}
@@ -174,6 +176,7 @@ public class game extends GraphicsProgram {
 					if(key == KeyEvent.VK_DOWN) {
 						down = true;
 						guy.move(0, 1);
+						guy.setImage("foward" + currentstate + ".png");
 					}
 				}
 			}
