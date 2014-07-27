@@ -7,7 +7,7 @@ import acm.graphics.*;
 import acm.program.GraphicsProgram;
 
 public class game extends GraphicsProgram {
-	gamescreen screen = new gamescreen(new GImage("BetterD&DMap.png"), 600, 600);
+	gamescreen screen = new gamescreen(new GImage("BetterD&DMap.png"), 600, 600, 670, 474);
 	public static final int APPLICATION_WIDTH = 670;
 	public static final int APPLICATION_HEIGHT = 474;
 	GImage Play = new GImage("button.png");
@@ -30,7 +30,7 @@ public class game extends GraphicsProgram {
 	public void run(){
 
 		addMouseListeners();
-
+		addKeyListeners();
 
 		add(background);
 
@@ -60,7 +60,6 @@ public class game extends GraphicsProgram {
 	}
 	public void play() {
 
-		addKeyListeners();
 		playing = true;
 		add(screen.getImage());
 		screen.register(guy);
@@ -77,12 +76,7 @@ public class game extends GraphicsProgram {
 	public void keyPressed(KeyEvent e) {
 		if(playing){
 			int key = e.getKeyCode();
-			if(currentstate < 3){
-				currentstate++;
-			}
-			else{
-				currentstate = 0;
-			}
+			currentstate = (currentstate + 1) % 4;
 			for(int i = 0; i < 8; i++) {
 				walk(key);
 
@@ -107,11 +101,11 @@ public class game extends GraphicsProgram {
 
 					if(d != solid) {
 
-
 						left = true;
 						guy.move(-1, 0);
 						remove(screen.getImage());
-						screen.left();
+						//screen.left();
+						screen.move(-1, 0);
 						add(screen.getImage());
 						screen.moveObjectsToFront();
 						guy.setImage("left" + currentstate + ".png");
@@ -141,7 +135,8 @@ public class game extends GraphicsProgram {
 						right = true;
 						guy.move(1, 0);
 						remove(screen.getImage());
-						screen.right();
+						//screen.right();
+						screen.move(1, 0);
 						add(screen.getImage());
 						screen.moveObjectsToFront();
 						guy.setImage("right" + currentstate + ".png");
@@ -169,7 +164,8 @@ public class game extends GraphicsProgram {
 						up = true;
 						guy.move(0, -1);
 						remove(screen.getImage());
-						screen.forward();
+						//screen.forward();
+						screen.move(0, -1);
 						add(screen.getImage());
 						screen.moveObjectsToFront();
 						guy.setImage("backwards" + currentstate + ".png");
@@ -198,7 +194,8 @@ public class game extends GraphicsProgram {
 						down = true;
 						guy.move(0, 1);
 						remove(screen.getImage());
-						screen.backward();
+						//screen.backward();
+						screen.move(0, 1);
 						add(screen.getImage());
 						screen.moveObjectsToFront();
 						guy.setImage("foward" + currentstate + ".png");
