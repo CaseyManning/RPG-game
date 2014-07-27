@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import acm.graphics.*;
 import acm.program.GraphicsProgram;
 
+/** TODO: This class should have comments. */
 public class gamescreen {
 	ArrayList<GObject> objects = new ArrayList<GObject>();
 	GImage screenImage = new GImage("mBackground.jpg");
